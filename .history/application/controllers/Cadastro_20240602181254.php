@@ -38,7 +38,7 @@ class Cadastro extends CI_Controller {
 
         echo $this->loadBase(
             array(
-                'title' => 'Representante',
+                'title' => 'Paciente',
                 'content' => "frontend/cadastro/representante",
                 'breadcumbs' => array("INÍCIO"),
                 'noBody' => true,

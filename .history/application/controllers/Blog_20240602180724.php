@@ -55,4 +55,15 @@ class Blog extends CI_Controller {
 
 }
 
+/*
+begin posts structure mytsql insert 
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+*/
 ?>

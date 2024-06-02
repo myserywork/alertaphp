@@ -40,19 +40,21 @@ class Blog extends CI_Controller {
         );
     }
 
-    private function loadBase($context) {
-        $user = loggedInUser();
-
-        if (isset($context['breadcumbs'])) {
-            $context['breadcumbs'] = generatePageBreadcrumb($context['title'], $context['breadcumbs']);
-        }
-
-        $context['user'] = $user;
-        $context['notifications'] = $this->notifications_model->get(1, 5);
-        $context['content'] = $this->load->view($context['content'], $context, true);
-        return $this->load->view('dashboard/template/base_template_view', $context, TRUE);
+    private function loadBase($data) {
+        $this->load->view('frontend/template/base_template_view', $data);
     }
 
 }
 
+/*
+begin posts structure mytsql insert 
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+*/
 ?>
