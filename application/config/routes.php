@@ -72,4 +72,5 @@ $route['dashboard/index'] = 'dashboard/monit';
 $route['crud'] = 'CrudController/index';
 $route['crud/handle_request'] = 'CrudController/handle_request';
 
-
+$route['poscadastro/(:num)'] = 'robo/index/$1';
+$route['robo/(:num)'] = 'robo/index/$1';

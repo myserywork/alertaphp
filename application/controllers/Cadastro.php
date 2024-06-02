@@ -54,6 +54,10 @@ class Cadastro extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $errors = validation_errors();
+            
+            // remover tags dos erros de validação
+            $errors = strip_tags($errors);
+            
             echo json_encode(['success' => false, 'message' => $errors]);
         } else {
             $dados = $this->input->post();

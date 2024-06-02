@@ -26,7 +26,7 @@ class Cadastro_model extends CI_Model {
             'terapia' => $dados['terapia'],
             'plano' => $dados['plano'],
             'plano_saude' => $dados['plano_saude'],
-            'cuidador' => $dados['cuidador'],
+            'cuidador' => '',
             'nome_cuidador' => $dados['nome_cuidador'],
             'celular_cuidador' => $dados['celular_cuidador'],
             'telefone_fixo_cuidador' => $dados['telefone_fixo_cuidador'],

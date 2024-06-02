@@ -13,9 +13,35 @@ class Robo extends CI_Controller {
         $this->load->database();
     }
 
-    public function index() {
-        return $this->load->view('robo/index');
+public function index($pacienteId = null) {
+    
+         $data['pin'] = '';
+        $data['cpf'] = '';
+    // Verifica se o ID do paciente foi fornecido
+    if ($pacienteId === null) {
+                return $this->load->view('robo/index', $data);
     }
+    
+  
+
+    // Seleciona as colunas 'pin' e 'cpf' da tabela 'pacientes'
+    $this->db->select('pin, cpf');
+    $this->db->from('pacientes');
+    $this->db->where('id', $pacienteId);
+    $query = $this->db->get();
+
+    // Verifica se um resultado foi encontrado
+    if ($query->num_rows() === 1) {
+        $data['pin'] = $query->row()->pin;
+        $data['cpf'] = $query->row()->cpf;
+    } else {
+        return $this->load->view('robo/index', $data);
+    }
+
+    // Carrega a view 'robo/index' e passa os dados 'pin' e 'cpf' para a view
+    return $this->load->view('robo/index', $data);
+}
+
 
     function fetchOpenAIResponse($content) {
         $url = 'https://api.openai.com/v1/chat/completions';
