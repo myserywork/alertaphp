@@ -24,7 +24,7 @@ class Representante extends CI_Controller {
     }
 
     public function success($representanteId) {
-        $representante = $this->db->get('representantes', $representanteId)->row();
+        $representante = $this->Representante_model->get($representanteId)->row();
 
         echo $this->loadBase(
             array(

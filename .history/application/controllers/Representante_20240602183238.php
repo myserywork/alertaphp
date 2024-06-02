@@ -23,20 +23,6 @@ class Representante extends CI_Controller {
         );
     }
 
-    public function success($representanteId) {
-        $representante = $this->db->get('representantes', $representanteId)->row();
-
-        echo $this->loadBase(
-            array(
-                'title' => 'Representante',
-                'content' => "frontend/representante/success",
-                'breadcumbs' => array("INÍCIO", "REPRESENTANTE"),
-                'representante' => $representante,
-                'noBody' => true,
-            )
-        );
-    }
-
 
     public function create() {
         $this->form_validation->set_rules('nome', 'Nome', 'required');
