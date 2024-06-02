@@ -82,17 +82,11 @@
                     <?= (isset($breadcumbs)) ? $breadcumbs : ''; ?>
                     <!--end breadcrumb-->
 
-                    <? if(isset($noBody) && $noBody == true) { ?>
-                        <div class="container">
-                            <?= $content; ?>
-                        </div>
-                    <? } else { ?>
                     <div class="card radius-10">
                         <div class="card-body">
                             <?= $content; ?>
                         </div>
                     </div>
-                    <? } ?>
 
                 </div>
                 <!-- end page content-->
