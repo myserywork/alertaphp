@@ -74,4 +74,3 @@ $route['crud/handle_request'] = 'CrudController/handle_request';
 
 $route['poscadastro/(:num)'] = 'robo/index/$1';
 $route['robo/(:num)'] = 'robo/index/$1';
-$route['robo/login/(:num)/(:num)'] = 'robo/index/$1/$2';
