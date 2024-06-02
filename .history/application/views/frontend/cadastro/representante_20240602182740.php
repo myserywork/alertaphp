@@ -193,7 +193,7 @@
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Sucesso!',
-                                text: 'Cadastro realizado com sucesso! Você receberá uma mensagem com mais detalhes.',
+                                text: 'Cadastro realizado com sucesso! Você será redirecionado para mais detalhes.',
                                 showConfirmButton: false,
                                 timer: 2000
                             });
