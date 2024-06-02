@@ -304,13 +304,13 @@
         <div class="col-md-4" style="display:none">
             <div class="form-group">
                 <label for="profissao_atual">Profissão Atual:</label>
-                <input type="text" class="form-control" id="profissao_atual" name="profissao_atual" value="0">
+                <input type="text" class="form-control" id="profissao_atual" name="profissao_atual">
             </div>
         </div>
         <div class="col-md-4" style="display:none">
             <div class="form-group">
                 <label for="profissao_anterior">Profissão Anterior:</label>
-                <input type="text" class="form-control" id="profissao_anterior" name="profissao_anterior" value="0">
+                <input type="text" class="form-control" id="profissao_anterior" name="profissao_anterior">
             </div>
         </div>
         <div class="col-md-4" style="display:none;">
