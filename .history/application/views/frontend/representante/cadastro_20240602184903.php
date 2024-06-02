@@ -87,21 +87,18 @@
                                 <div class="form-group">
                                     <label for="nome">Nome:</label>
                                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: João da Silva" required>
-                                    <div class="error" id="nomeError"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="cpf">CPF:</label>
                                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-                                    <div class="error" id="cpfError"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="profissao">Profissão:</label>
                                     <input type="text" class="form-control" id="profissao" name="profissao" placeholder="Ex: Vendas" required>
-                                    <div class="error" id="profissaoError"></div>
                                 </div>
                             </div>
                         </div>
@@ -113,21 +110,18 @@
                                         <option value="M">Masculino</option>
                                         <option value="F">Feminino</option>
                                     </select>
-                                    <div class="error" id="sexoError"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="data_nascimento">Data de Nascimento:</label>
                                     <input type="text" class="form-control" id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" required>
-                                    <div class="error" id="data_nascimentoError"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="estado">Estado:</label>
                                     <input type="text" class="form-control" id="estado" name="estado" placeholder="Select..." required>
-                                    <div class="error" id="estadoError"></div>
                                 </div>
                             </div>
                         </div>
@@ -136,21 +130,18 @@
                                 <div class="form-group">
                                     <label for="cidade">Cidade de Residência:</label>
                                     <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ex: São Paulo" required>
-                                    <div class="error" id="cidadeError"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="telefone">Telefone com DDD:</label>
                                     <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-                                    <div class="error" id="telefoneError"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="whatsapp">Número do WhatsApp:</label>
                                     <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
-                                    <div class="error" id="whatsappError"></div>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +150,6 @@
                                 <div class="form-group">
                                     <label for="cep">CEP:</label>
                                     <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" required>
-                                    <div class="error" id="cepError"></div>
                                 </div>
                             </div>
                         </div>
@@ -205,53 +195,7 @@
             IMask(document.getElementById('data_nascimento'), { mask: '00/00/0000' });
 
             $('#submitBtn').click(function () {
-                var valid = true;
-                $('.error').text(''); // Limpar mensagens de erro
-
-                if (!$('#nome').val()) {
-                    $('#nomeError').text('O campo Nome é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#cpf').val()) {
-                    $('#cpfError').text('O campo CPF é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#profissao').val()) {
-                    $('#profissaoError').text('O campo Profissão é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#sexo').val()) {
-                    $('#sexoError').text('O campo Sexo é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#data_nascimento').val()) {
-                    $('#data_nascimentoError').text('O campo Data de Nascimento é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#estado').val()) {
-                    $('#estadoError').text('O campo Estado é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#cidade').val()) {
-                    $('#cidadeError').text('O campo Cidade é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#telefone').val()) {
-                    $('#telefoneError').text('O campo Telefone é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#whatsapp').val()) {
-                    $('#whatsappError').text('O campo WhatsApp é obrigatório.');
-                    valid = false;
-                }
-                if (!$('#cep').val()) {
-                    $('#cepError').text('O campo CEP é obrigatório.');
-                    valid = false;
-                }
-
-                if (valid) {
-                    $('#formCadastro').submit();
-                }
+                $('#formCadastro').submit();
             });
 
             $("#formCadastro").submit(function (e) {
