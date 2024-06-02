@@ -123,7 +123,7 @@
             }
         </style>
         
-        <div class=" radius-10 nobody">
+        <div class="card radius-10 nobody">
             <div class="">
                 <?= $content; ?>
             </div>
