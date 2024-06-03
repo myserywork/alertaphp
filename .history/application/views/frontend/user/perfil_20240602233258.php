@@ -122,32 +122,6 @@
                 margin-bottom: 10px;
             }
         }
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .contact-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 1em;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .contact-button:hover {
-            background-color: #219150;
-            transform: scale(1.05);
-        }
-        .contact-button i {
-            margin-right: 10px;
-        }
     </style>
 </head>
 <body>
@@ -170,7 +144,6 @@
             <button onclick="showTab('prontuarios')"><i class="material-icons">description</i> Prontuários</button>
             <button onclick="showTab('alertas')"><i class="material-icons">notifications</i> Alertas</button>
             <button onclick="showTab('teste-dengue')"><i class="material-icons">bug_report</i> Teste Dengue</button>
-            <button onclick="showTab('contato-rapido')"><i class="material-icons">phone</i> Contato Rápido</button>
         </div>
         <div id="overview" class="tab-content active">
             <?php $this->load->view('frontend/user/mood', array('paciente' => $paciente)); ?>
@@ -197,27 +170,6 @@
         <div id="teste-dengue" class="tab-content">
             <h2>Teste Dengue</h2>
             <!-- Conteúdo do teste de dengue aqui -->
-        </div>
-        <div id="contato-rapido" class="tab-content">
-            <h2>Contato Rápido</h2>
-            <div class="contact-container">
-                <a href="https://wa.me/55<?= $paciente->telefone ?>" class="contact-button" target="_blank">
-                    <i class="material-icons">message</i> WhatsApp Paciente
-                </a>
-                <a href="tel:+55<?= $paciente->telefone ?>" class="contact-button">
-                    <i class="material-icons">call</i> Ligar para Paciente
-                </a>
-                <?php if (!empty($paciente->celular_cuidador)): ?>
-                    <a href="https://wa.me/55<?= $paciente->celular_cuidador ?>" class="contact-button" target="_blank">
-                        <i class="material-icons">message</i> WhatsApp Cuidador
-                    </a>
-                <?php endif; ?>
-                <?php if (!empty($paciente->telefone_fixo_cuidador)): ?>
-                    <a href="tel:+55<?= $paciente->telefone_fixo_cuidador ?>" class="contact-button">
-                        <i class="material-icons">call</i> Ligar para Cuidador
-                    </a>
-                <?php endif; ?>
-            </div>
         </div>
     </div>
     <script>
