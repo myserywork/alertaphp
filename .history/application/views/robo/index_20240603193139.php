@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* O estilo permanece inalterado */
         body {
             font-family: 'Poppins', Arial, sans-serif;
             background-color: #e5ddd5;
@@ -18,7 +19,7 @@
         }
 
         .chat-container {
-            width: 90%;
+            width: 100%;
             max-width: 600px;
             background-color: #fff;
             border-radius: 10px;
@@ -26,7 +27,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 80vh;
+            height: 100%;
         }
 
         .chat-header {
@@ -176,11 +177,18 @@
 
         .chat-input input {
             flex-grow: 1;
-            padding: 10px;
+            padding: 5px 10px;
             border-radius: 20px;
             border: 1px solid #ccc;
             outline: none;
             font-size: 16px;
+            transition: all 0.3s ease;
+            width: 50px; /* Start with a small width */
+        }
+
+        .chat-input input:focus {
+            width: calc(100% - 70px); /* Expand to fill the space when focused */
+            padding: 10px;
         }
 
         .chat-input button {
@@ -450,8 +458,8 @@
     <div class="auth-popup" id="auth-popup">
         <div class="auth-popup-content">
             <h2>Autenticação</h2>
-            <input id="cpf-input" type="text" placeholder="CPF" maxlength="14" oninput="formatCPF(event)">
-            <input id="pin-input" type="password" placeholder="PIN" maxlength="4" oninput="formatPIN(event)">
+            <input id="cpf-input" type="text" placeholder="CPF" maxlength="14" oninput="formatCPF(event)" value="<?= $cpf; ?>">
+            <input id="pin-input" type="password" placeholder="PIN" maxlength="4" oninput="formatPIN(event)" value="<?= $pin; ?>">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="audio-toggle">
                 <label class="form-check-label audio-toggle-label" for="audio-toggle">
@@ -503,6 +511,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             requestPermissions();
+            autoAuthenticate();
         });
 
         function requestPermissions() {
@@ -537,7 +546,7 @@
             if (validateCPF(cpf) && validatePIN(pin)) {
                 document.getElementById("loading-indicator").style.display = "flex";
 
-                fetch(`https://moriarty.com.br/alertasaude/paciente/login?cpf=${cpf}&pin=${pin}`)
+                fetch(`https://beta.alertasaude.com.br/paciente/login?cpf=${cpf}&pin=${pin}`)
                     .then(response => response.json())
                     .then(data => {
                         patientData = data;
@@ -912,6 +921,34 @@
             audio.onended = () => {
                 if (callback) callback();
             };
+        }
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const userInput = document.getElementById("user-input");
+            const chatInput = document.querySelector(".chat-input");
+
+            // Expande o campo de texto quando clicado
+            userInput.addEventListener("focus", () => {
+                userInput.style.width = "calc(100% - 70px)";
+                userInput.style.padding = "10px";
+            });
+
+            // Contrai o campo de texto quando clicado fora
+            document.addEventListener("click", (event) => {
+                if (!chatInput.contains(event.target)) {
+                    userInput.style.width = "50px";
+                    userInput.style.padding = "5px 10px";
+                }
+            });
+        });
+
+        function autoAuthenticate() {
+            const cpfInput = document.getElementById("cpf-input").value;
+            const pinInput = document.getElementById("pin-input").value;
+
+            if (cpfInput && pinInput) {
+                authenticate();
+            }
         }
     </script>
 </body>

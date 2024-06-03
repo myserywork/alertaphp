@@ -16,9 +16,8 @@
             align-items: center;
             height: 100vh;
         }
-
         .chat-container {
-            width: 90%;
+            width: 100%;
             max-width: 600px;
             background-color: #fff;
             border-radius: 10px;
@@ -26,9 +25,8 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 80vh;
+            height: 100%;
         }
-
         .chat-header {
             background-color: #075e54;
             color: white;
@@ -40,14 +38,12 @@
             align-items: center;
             justify-content: center;
         }
-
         .chat-header img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             margin-right: 10px;
         }
-
         .chat-messages {
             flex-grow: 1;
             padding: 20px;
@@ -56,7 +52,6 @@
             flex-direction: column;
             background-color: #dcf8c6;
         }
-
         .chat-message {
             max-width: 70%;
             margin-bottom: 10px;
@@ -66,24 +61,20 @@
             display: flex;
             align-items: center;
         }
-
         .chat-message.bot {
             align-self: flex-start;
             background-color: #fff;
             border: 1px solid #ddd;
         }
-
         .chat-message.bot img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             margin-right: 10px;
         }
-
         .chat-message.bot.active {
             border: 2px solid #075e54;
         }
-
         .chat-message.bot::before {
             content: "";
             position: absolute;
@@ -96,25 +87,21 @@
             border-left: 0;
             margin-top: -5px;
         }
-
         .chat-message.user {
             align-self: flex-end;
             background-color: #fff;
             border: 1px solid #ddd;
             color: #000;
         }
-
         .chat-message.user img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             margin-left: 10px;
         }
-
         .chat-message.user div {
             margin-left: 5px;
         }
-
         .chat-message.user::before {
             content: "";
             position: absolute;
@@ -127,7 +114,6 @@
             border-right: 0;
             margin-top: -5px;
         }
-
         .typing-indicator {
             align-self: flex-start;
             display: flex;
@@ -136,7 +122,6 @@
             height: 20px;
             margin-bottom: 10px;
         }
-
         .typing-indicator span {
             display: inline-block;
             width: 8px;
@@ -146,15 +131,12 @@
             border-radius: 50%;
             animation: typing 1s infinite;
         }
-
         .typing-indicator span:nth-child(2) {
             animation-delay: 0.2s;
         }
-
         .typing-indicator span:nth-child(3) {
             animation-delay: 0.4s;
         }
-
         @keyframes typing {
             0%, 60%, 100% {
                 transform: translateY(0);
@@ -165,7 +147,6 @@
                 opacity: 1;
             }
         }
-
         .chat-input {
             display: flex;
             justify-content: space-between;
@@ -173,16 +154,20 @@
             background-color: #f9f9f9;
             border-top: 1px solid #ccc;
         }
-
         .chat-input input {
             flex-grow: 1;
-            padding: 10px;
+            padding: 5px 10px;
             border-radius: 20px;
             border: 1px solid #ccc;
             outline: none;
             font-size: 16px;
+            transition: all 0.3s ease;
+            width: 50px; /* Start with a small width */
         }
-
+        .chat-input input:focus {
+            width: calc(100% - 70px); /* Expand to fill the space when focused */
+            padding: 10px;
+        }
         .chat-input button {
             padding: 10px 20px;
             border: none;
@@ -195,23 +180,19 @@
             align-items: center;
             justify-content: center;
         }
-
         .chat-input button i {
             margin-right: 5px;
         }
-
         #listen-toggle {
             background-color: #f9f9f9;
             color: #333;
             border: 1px solid #ccc;
             border-radius: 20px;
         }
-
         #listen-toggle.active {
             background-color: #075e54;
             color: white;
         }
-
         #record-btn {
             background-color: #075e54;
             color: white;
@@ -224,11 +205,9 @@
             align-items: center;
             justify-content: center;
         }
-
         #record-btn.active {
             background-color: #d32f2f;
         }
-
         .risk-bar {
             display: flex;
             justify-content: space-between;
@@ -237,7 +216,6 @@
             background-color: #f9f9f9;
             border-top: 1px solid #ccc;
         }
-
         .risk-progress {
             height: 10px;
             width: 80%;
@@ -246,18 +224,15 @@
             overflow: hidden;
             transition: width 1s ease-in-out, background-color 1s ease-in-out;
         }
-
         .risk-progress div {
             height: 100%;
             transition: width 1s ease-in-out, background-color 1s ease-in-out;
         }
-
         #risk-level {
             width: 20%;
             text-align: right;
             font-weight: bold;
         }
-
         .response-buttons {
             display: flex;
             justify-content: center;
@@ -266,7 +241,6 @@
             display: none; /* Initially hidden */
             padding-bottom: 20px; /* Padding for bottom */
         }
-
         .response-buttons button {
             padding: 10px 20px;
             border-radius: 20px;
@@ -275,28 +249,23 @@
             display: flex;
             align-items: center;
         }
-
         .response-buttons #yes-btn {
             background-color: #4CAF50;
             color: white;
         }
-
         .response-buttons #no-btn {
             background-color: #f44336;
             color: white;
         }
-
         .response-buttons i {
             margin-right: 10px;
         }
-
         .questions-remaining {
             text-align: center;
             margin-top: -10px;
             font-size: 0.85em;
             margin-bottom: 10px;
         }
-
         .auth-popup {
             position: fixed;
             top: 0;
@@ -308,7 +277,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .auth-popup-content {
             background-color: white;
             padding: 20px;
@@ -316,12 +284,10 @@
             text-align: center;
             width: 300px;
         }
-
         .auth-popup-content h2 {
             margin-bottom: 20px;
             color: #075e54;
         }
-
         .auth-popup-content input {
             width: 80%;
             padding: 10px;
@@ -331,7 +297,6 @@
             outline: none;
             font-size: 16px;
         }
-
         .auth-popup-content button {
             width: 100%;
             padding: 10px;
@@ -341,14 +306,12 @@
             background-color: #075e54;
             color: white;
         }
-
         .loading-indicator {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
-
         .loading-indicator div {
             width: 8px;
             height: 8px;
@@ -356,15 +319,12 @@
             border-radius: 50%;
             animation: loading 1s infinite;
         }
-
         .loading-indicator div:nth-child(2) {
             animation-delay: 0.2s;
         }
-
         .loading-indicator div:nth-child(3) {
             animation-delay: 0.4s;
         }
-
         @keyframes loading {
             0%, 60%, 100% {
                 transform: translateY(0);
@@ -375,7 +335,6 @@
                 opacity: 1;
             }
         }
-
         .listening-indicator {
             display: flex;
             align-items: center;
@@ -388,7 +347,6 @@
             text-align: center;
             margin-bottom: 10px;
         }
-
         .audio-toggle-label {
             display: flex;
             align-items: center;
@@ -396,47 +354,38 @@
             font-size: 18px;
             cursor: pointer;
         }
-
         .audio-toggle-label i {
             font-size: 24px;
             color: #075e54;
         }
-
         @media (max-width: 600px) {
             .chat-container {
                 width: 100%;
                 height: 100vh;
                 border-radius: 0;
             }
-
             .chat-input {
                 padding: 5px;
             }
-
             .chat-input input {
                 padding: 8px;
                 font-size: 14px;
             }
-
             .chat-input button {
                 padding: 8px 16px;
                 font-size: 14px;
             }
-
             .chat-messages {
                 padding: 10px;
             }
-
             .chat-header {
                 padding: 5px;
                 font-size: 18px;
             }
-
             .response-buttons {
                 gap: 10px;
                 flex-direction: row; /* Display buttons side by side */
             }
-
             .response-buttons button {
                 width: auto;
                 flex-grow: 1; /* Make buttons grow to fill space */
@@ -496,13 +445,14 @@
         let currentSymptomIndex = 0;
         const riskLevels = { "baixo": 1, "medio": 2, "alto": 3, "urgente": 4 };
         let currentRiskLevel = 0;
-        let useListen = false;
-        let responses = []; // Array para armazenar respostas
+        let useListen = true;
+        let responses = [];
         let recognition;
-        let awaitingNextQuestion = false; // Flag to check if awaiting next question
+        let awaitingNextQuestion = false;
 
         document.addEventListener("DOMContentLoaded", () => {
             requestPermissions();
+            autoAuthenticate();
         });
 
         function requestPermissions() {
@@ -537,7 +487,7 @@
             if (validateCPF(cpf) && validatePIN(pin)) {
                 document.getElementById("loading-indicator").style.display = "flex";
 
-                fetch(`https://moriarty.com.br/alertasaude/paciente/login?cpf=${cpf}&pin=${pin}`)
+                fetch(`https://beta.alertasaude.com.br/paciente/login?cpf=${cpf}&pin=${pin}`)
                     .then(response => response.json())
                     .then(data => {
                         patientData = data;
@@ -546,7 +496,7 @@
                             document.getElementById("loading-indicator").style.display = "none";
                             return;
                         }
-                        useListen = audioToggle; // Set useListen based on the checkbox
+                        useListen = audioToggle;
                         document.getElementById("auth-popup").style.display = "none";
                         document.querySelector(".chat-container").style.display = "flex";
                         introduceLiz();
@@ -575,9 +525,9 @@
             if (useListen) playAudio(stripHTML(introductionText), () => {
                 setTimeout(() => {
                     updateDiseaseInfo();
-                      setTimeout(() => {
-                          nextQuestion();
-                      }, 2000);
+                    setTimeout(() => {
+                        nextQuestion();
+                    }, 2000);
                 }, 2000);
             });
         }
@@ -589,7 +539,7 @@
                 let symptom = disease.sintomas[currentSymptomIndex];
                 if (symptom) {
                     displayLoadingIndicator();
-                           setTimeout(() => {
+                    setTimeout(() => {
                         removeLoadingIndicator();
                         displayMessage(symptom.pergunta, "bot", true);
                         if (useListen) playAudio(stripHTML(symptom.pergunta), showResponseButtons);
@@ -649,7 +599,7 @@
         }
 
         function sendResponse(response) {
-            if (awaitingNextQuestion) return; // Prevent overlapping responses
+            if (awaitingNextQuestion) return;
 
             let disease = patientData.doencasCronicas[currentDiseaseIndex];
             let symptom = disease.sintomas[currentSymptomIndex];
@@ -671,13 +621,13 @@
             updateQuestionsRemaining();
 
             awaitingNextQuestion = true;
-            setTimeout(nextQuestion, 2000); // Wait for 2 seconds before moving to the next question
+            setTimeout(nextQuestion, 2000);
         }
 
         function incrementRiskBar() {
             let riskBar = document.getElementById("risk-progress");
             let currentWidth = parseFloat(riskBar.style.width);
-            let newWidth = currentWidth + 5; // Incrementa 5% da barra
+            let newWidth = currentWidth + 5;
             riskBar.style.width = newWidth + "%";
         }
 
@@ -775,12 +725,12 @@
                     } else {
                         displayMessage("<b>Não consegui entender. Por favor, diga 'sim' ou 'não'.</b>", "bot");
                     }
-                    stopRecording(); // Stop recording after result is processed
+                    stopRecording();
                 };
 
                 recognition.onerror = function (event) {
                     console.error("Erro no reconhecimento de voz:", event.error);
-                    stopRecording(); // Stop recording on error
+                    stopRecording();
                 };
 
                 recognition.start();
@@ -871,7 +821,6 @@
             }
         }
 
-        // Atualiza a imagem e a informação da doença atual
         function updateDiseaseInfo() {
             if (currentDiseaseIndex < patientData.doencasCronicas.length) {
                 let disease = patientData.doencasCronicas[currentDiseaseIndex];
@@ -899,19 +848,43 @@
             }
         }
 
-        // Function to strip HTML tags from a string
         function stripHTML(html) {
             let doc = new DOMParser().parseFromString(html, 'text/html');
             return doc.body.textContent || "";
         }
 
-        // Function to play audio with a delay to avoid overlapping
         function playAudio(audioString, callback) {
             const audio = new Audio("https://moriarty.com.br/alerta/api/audio?text=" + encodeURIComponent(audioString));
             audio.play();
             audio.onended = () => {
                 if (callback) callback();
             };
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const userInput = document.getElementById("user-input");
+            const chatInput = document.querySelector(".chat-input");
+
+            userInput.addEventListener("focus", () => {
+                userInput.style.width = "calc(100% - 70px)";
+                userInput.style.padding = "10px";
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!chatInput.contains(event.target)) {
+                    userInput.style.width = "50px";
+                    userInput.style.padding = "5px 10px";
+                }
+            });
+        });
+
+        function autoAuthenticate() {
+            const cpfInput = document.getElementById("cpf-input").value;
+            const pinInput = document.getElementById("pin-input").value;
+
+            if (cpfInput && pinInput) {
+                authenticate();
+            }
         }
     </script>
 </body>
