@@ -135,6 +135,11 @@
                 margin: 5px 1%;
             }
         }
+
+
+        .contact-buttons {
+            color: #fff !important;
+        }
     </style>
 </head>
 <body>
