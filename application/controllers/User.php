@@ -50,6 +50,10 @@ class User extends CI_Controller {
 
          $user = $this->Cadastro_model->get_paciente($user->id);
 
+         if($user == null) {
+            redirect('user/login');
+        }
+
       
 
         // Get prontuarios and medicacoes
