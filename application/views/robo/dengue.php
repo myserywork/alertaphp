@@ -15,13 +15,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 10px;
+            padding: 0;
             box-sizing: border-box;
         }
 
         .chat-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 414px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            max-height: 90vh;
+            max-height: 896px;
         }
 
         .chat-header {
@@ -53,7 +53,7 @@
 
         .chat-messages {
             flex-grow: 1;
-            padding: 20px;
+            padding: 10px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -100,21 +100,22 @@
 
         .response-buttons {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            justify-content: space-between;
             margin: 10px 0;
+            width: 100%;
         }
 
         .response-buttons button {
-            padding: 10px 20px;
-            border-radius: 20px;
+            flex: 1;
+            padding: 15px 0;
+            border-radius: 0;
             border: none;
             cursor: pointer;
             background-color: #4CAF50;
             color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
             font-size: 16px;
             transition: background-color 0.3s;
         }
@@ -133,8 +134,9 @@
 
         .questions-remaining {
             text-align: center;
-            font-size: 0.85em;
-            margin: 5px 0;
+            font-size: 1em;
+            margin: 10px 0;
+            font-weight: bold;
         }
 
         .risk-bar {
@@ -144,11 +146,12 @@
             padding: 10px;
             background-color: #f9f9f9;
             border-top: 1px solid #ccc;
+            width: 100%;
         }
 
         .risk-progress {
             height: 10px;
-            width: 80%;
+            width: 100%;
             background-color: #ccc;
             border-radius: 5px;
             overflow: hidden;
@@ -161,14 +164,14 @@
         }
 
         #risk-level {
-            width: 20%;
-            text-align: right;
+            text-align: center;
             font-weight: bold;
+            padding: 10px;
+            color: #000;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 414px) {
             .chat-container {
-                max-height: 80vh;
                 border-radius: 0;
             }
 
@@ -202,7 +205,7 @@
 
             #risk-level {
                 width: 100%;
-                text-align: left;
+                text-align: center;
                 margin-top: 10px;
             }
         }
