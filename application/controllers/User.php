@@ -11,6 +11,10 @@ class User extends CI_Controller {
         $this->load->model('Cadastro_model');
     }
 
+
+    public function index() {
+        $this->login();
+    }
     public function login() {
         echo $this->loadBase(
             array(

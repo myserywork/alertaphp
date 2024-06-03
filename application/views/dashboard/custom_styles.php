@@ -60,6 +60,7 @@
 		color: #fff !important; /* Texto branco */
 
 	}
+	
 
 
 	.btn-primary {
