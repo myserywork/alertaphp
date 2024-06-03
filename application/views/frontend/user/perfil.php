@@ -12,7 +12,7 @@
     <meta property="og:title" content="Perfil do Paciente">
     <meta property="og:description" content="Visualize e gerencie as informações do paciente, incluindo dados pessoais, avaliações, gráficos, medicações, prontuários, alertas e contatos rápidos.">
     <meta property="og:image" content="assets/images/logo-iso.png">
-    <meta property="og:url" content="<?= base_url("user/perfil"); ?>">
+    <meta property="og:url" content="URL_DO_SEU_SITE">
     <meta property="og:type" content="website">
 
     <!-- PWA Configuration -->
@@ -154,7 +154,6 @@
             }
         }
 
-
         .contact-buttons {
             color: #fff !important;
         }
@@ -247,10 +246,10 @@
         </div>
     </div>
 
-   <!--  <div id="addToHomeScreen" class="add-to-home-screen">
+    <div id="addToHomeScreen" class="add-to-home-screen">
         Adicionar à Tela Inicial
     </div>
-    -->
+
     <script>
         function showTab(tabId) {
             const contents = document.querySelectorAll('.tab-content');
