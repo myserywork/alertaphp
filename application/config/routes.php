@@ -77,3 +77,4 @@ $route['robo/(:num)'] = 'robo/index/$1';
 $route['robo/login/(:num)/(:num)'] = 'robo/index/$1/$2';
 $route['dengue'] = 'robo/dengue';
 $route['blog'] = 'blog/index';
+$route['perfil'] = 'user/login';
