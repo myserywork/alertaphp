@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/assets/images/logo-iso.png',
+                '/images/logo-iso.png',
                 // Adicione outros recursos que você deseja armazenar em cache
             ]);
         })
