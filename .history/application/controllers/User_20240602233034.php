@@ -60,7 +60,7 @@ class User extends CI_Controller {
                 'paciente' => $user,
                 'prontuarios' => $prontuarios,
                 'medicacoes' => $medicacoes,
-                'alertasCount' => $this->Alertas_model->get_alertas_count_by_risk($user->id),
+                'alertasCount' => $this->Alertas_model->get_alertas_count_by_risk($user->id)
                 'noBody' => true,
                 'user' => $user
             )
