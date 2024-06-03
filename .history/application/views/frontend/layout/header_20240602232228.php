@@ -1,5 +1,4 @@
 
-    
     <title>Alerta Saúde</title>
 
     <!-- Bootstrap CSS -->

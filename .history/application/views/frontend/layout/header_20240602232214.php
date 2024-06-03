@@ -1,5 +1,4 @@
 
-    
     <title>Alerta Saúde</title>
 
     <!-- Bootstrap CSS -->
@@ -163,7 +162,7 @@
                     <a class="nav-link" href="https://www.alertasaude.com.br/quero-associar/">Quero Associar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.alertasaude.com.br/teleconsultas/">Teleconsultas</a>
+                    <a class="nav-link" href="#">Teleconsultas</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-urgent" href="#">Chamada Urgente</a>

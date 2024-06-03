@@ -1,4 +1,7 @@
 
+    <?php 
+    
+    ?>
     
     <title>Alerta Saúde</title>
 

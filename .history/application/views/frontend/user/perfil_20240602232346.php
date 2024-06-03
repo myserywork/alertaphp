@@ -1,4 +1,9 @@
 
+<?php 
+
+$this->load->view('frontend/layout/header.php');?>
+   
+   
 <!DOCTYPE html>
 <html lang="en">
 <head>
