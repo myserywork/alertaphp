@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Paciente</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/logo-iso.png">
+    <meta name="description" content="Perfil do Paciente - Visualize e gerencie as informações do paciente, incluindo dados pessoais, avaliações, gráficos, medicações, prontuários, alertas e contatos rápidos.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Perfil do Paciente">
+    <meta property="og:description" content="Visualize e gerencie as informações do paciente, incluindo dados pessoais, avaliações, gráficos, medicações, prontuários, alertas e contatos rápidos.">
+    <meta property="og:image" content="assets/images/logo-iso.png">
+    <meta property="og:url" content="URL_DO_SEU_SITE">
+    <meta property="og:type" content="website">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="assets/images/logo-iso.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Perfil do Paciente">
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -140,12 +158,18 @@
         .contact-buttons {
             color: #fff !important;
         }
+
+        .btn-schedule {
+            color: #fff !important;
+        }
+
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="profile-header">
-            <img src="<?= base_url('assets/uploads/files/'. $paciente->foto ) ?: base_url('/assets/images/logo-iso.png') ?>" alt="Foto do Paciente">
+            <img src="<?= strlen($paciente->foto) > 5 ? base_url('assets/uploads/files/' . $paciente->foto) : base_url('assets/images/logo-iso.png') ?>" alt="Foto do Paciente">
             <div>
                 <strong><?= $paciente->nome ?></strong><br>
                 <?= $paciente->email ?><br>
@@ -211,6 +235,14 @@
 
             document.getElementById(tabId).classList.add('active');
             document.querySelector(`.tabs button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(error) {
+                console.log('ServiceWorker registration failed: ', error);
+            });
         }
     </script>
 </body>
