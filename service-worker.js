@@ -3,9 +3,6 @@ self.addEventListener('install', function(event) {
         caches.open('pwa-cache').then(function(cache) {
             return cache.addAll([
                 '/',
-                '/index.html',
-                'https://beta.alertasaude.com.br/assets/images/logo-iso.png',
-                // Adicione outros recursos que você deseja armazenar em cache
             ]);
         })
     );
