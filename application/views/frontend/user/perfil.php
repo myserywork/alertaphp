@@ -186,12 +186,23 @@
             display: block;
             bottom: 20px;
         }
+
+        .profile-picture {
+            margin-top: 40%;
+        }
+
+        @media screen and (max-width: 320px){
+            .profile-picture {
+              margin-top: 140%;
+             }
+        }
+
     </style>
 </head>
 <body>
     <div class="">
         <div class="profile-header" >
-            <img src="<?= strlen($paciente->foto) > 5 ? base_url('assets/uploads/files/' . $paciente->foto) : base_url('assets/images/logo-iso.png') ?>" alt="Foto do Paciente"  style="margin-top: 15% ">
+            <img src="<?= strlen($paciente->foto) > 5 ? base_url('assets/uploads/files/' . $paciente->foto) : base_url('assets/images/logo-iso.png') ?>" alt="Foto do Paciente"  style="" class="profile-picture">
             <div>
                 <strong><?= $paciente->nome ?></strong><br>
                 <?= $paciente->email ?><br>
