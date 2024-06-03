@@ -12,7 +12,7 @@
     <meta property="og:title" content="Perfil do Paciente">
     <meta property="og:description" content="Visualize e gerencie as informações do paciente, incluindo dados pessoais, avaliações, gráficos, medicações, prontuários, alertas e contatos rápidos.">
     <meta property="og:image" content="assets/images/logo-iso.png">
-    <meta property="og:url" content="URL_DO_SEU_SITE">
+    <meta property="og:url" content="<?= base_url("user/perfil"); ?>">
     <meta property="og:type" content="website">
 
     <!-- PWA Configuration -->
@@ -163,7 +163,28 @@
             color: #fff !important;
         }
 
-
+        .add-to-home-screen {
+            display: none;
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 90%;
+            max-width: 300px;
+            background-color: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: bottom 0.5s;
+            z-index: 1000;
+        }
+        .add-to-home-screen.show {
+            display: block;
+            bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -225,6 +246,11 @@
             </div>
         </div>
     </div>
+
+    <div id="addToHomeScreen" class="add-to-home-screen">
+        Adicionar à Tela Inicial
+    </div>
+
     <script>
         function showTab(tabId) {
             const contents = document.querySelectorAll('.tab-content');
@@ -246,26 +272,15 @@
         }
 
         let deferredPrompt;
-        const addBtn = document.createElement('button');
-        addBtn.style.position = 'fixed';
-        addBtn.style.bottom = '20px';
-        addBtn.style.right = '20px';
-        addBtn.style.backgroundColor = '#27ae60';
-        addBtn.style.color = 'white';
-        addBtn.style.border = 'none';
-        addBtn.style.padding = '10px';
-        addBtn.style.borderRadius = '5px';
-        addBtn.style.cursor = 'pointer';
-        addBtn.innerText = 'Adicionar à Tela Inicial';
-        document.body.appendChild(addBtn);
+        const addToHomeScreenBtn = document.getElementById('addToHomeScreen');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            addBtn.style.display = 'block';
+            addToHomeScreenBtn.classList.add('show');
 
-            addBtn.addEventListener('click', () => {
-                addBtn.style.display = 'none';
+            addToHomeScreenBtn.addEventListener('click', () => {
+                addToHomeScreenBtn.classList.remove('show');
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
@@ -281,6 +296,13 @@
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
         });
+
+        // iOS specific check for displaying the "Add to Home Screen" message
+        if (navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) {
+            if (!navigator.standalone) {
+                addToHomeScreenBtn.classList.add('show');
+            }
+        }
     </script>
 </body>
 </html>
