@@ -32,7 +32,8 @@
 
     ?>
 
-    <title>LOGIN</title>
+    <title>AlertaSaúde - Entrar
+    </title>
   </head>
   <body class="bg-white">
     
@@ -71,10 +72,10 @@
                     <button type="submit" class="btn btn-primary">Entrar</button>
                   </div>
                 </div>
-                <!-- 
+           
                 <div class="col-12 col-lg-12">
                   <div class="position-relative border-bottom my-3">
-                     <div class="position-absolute seperator translate-middle-y">or continue with</div>
+                     <div class="position-absolute seperator translate-middle-y">ou continue com</div>
                   </div>
                 </div>
                 <div class="col-12 col-lg-12">
@@ -84,7 +85,7 @@
                       <a href="javascript:;" class=""><img src="assets/images/icons/google.png" alt=""></a>  
                   </div>
                 </div>
-                 -->
+            
 
                 <div class="col-12 col-lg-12 text-center">
                   <p class="mb-0">Não tem uma conta? <a href="<?= base_url("auth/register"); ?>">Registre-se</a></p>
