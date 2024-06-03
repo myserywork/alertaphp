@@ -262,46 +262,7 @@
             document.querySelector(`.tabs button[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }).catch(function(error) {
-                console.log('ServiceWorker registration failed: ', error);
-            });
-        }
-
-        let deferredPrompt;
-        const addToHomeScreenBtn = document.getElementById('addToHomeScreen');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            addToHomeScreenBtn.classList.add('show');
-
-            addToHomeScreenBtn.addEventListener('click', () => {
-                addToHomeScreenBtn.classList.remove('show');
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the A2HS prompt');
-                    } else {
-                        console.log('User dismissed the A2HS prompt');
-                    }
-                    deferredPrompt = null;
-                });
-            });
-        });
-
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA was installed');
-        });
-
-        // iOS specific check for displaying the "Add to Home Screen" message
-        if (navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) {
-            if (!navigator.standalone) {
-                addToHomeScreenBtn.classList.add('show');
-            }
-        }
+      
     </script>
 </body>
 </html>
