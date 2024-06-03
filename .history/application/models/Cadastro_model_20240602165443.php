@@ -72,14 +72,6 @@ public function get_paciente($pacienteId) {
                                       ->get()
                                       ->result();
         $paciente->diasSemana = $this->db->get_where('dias_semana', ['paciente_id' => $pacienteId])->result();
-        // Medicações
-        $paciente->medicacoes = $this->db->get_where('medicacoes', ['paciente_id' => $pacienteId])->result();
-
-        // Prontuários
-        $paciente->prontuarios = $this->db->get_where('prontuarios', ['paciente_id' => $pacienteId])->result();
-
-        // Alertas
-        $paciente->alertas = $this->db->get_where('alertas', ['paciente_id' => $pacienteId])->result();
     }
 
     return $paciente;
