@@ -575,9 +575,9 @@
             if (useListen) playAudio(stripHTML(introductionText), () => {
                 setTimeout(() => {
                     updateDiseaseInfo();
-                    setTimeout(() => {
-                        nextQuestion();
-                    }, 2000);
+                      setTimeout(() => {
+                          nextQuestion();
+                      }, 2000);
                 }, 2000);
             });
         }
@@ -589,7 +589,7 @@
                 let symptom = disease.sintomas[currentSymptomIndex];
                 if (symptom) {
                     displayLoadingIndicator();
-                    setTimeout(() => {
+                           setTimeout(() => {
                         removeLoadingIndicator();
                         displayMessage(symptom.pergunta, "bot", true);
                         if (useListen) playAudio(stripHTML(symptom.pergunta), showResponseButtons);
@@ -643,7 +643,7 @@
             let userInput = document.getElementById("user-input").value.trim();
             if (!userInput) return;
 
-            displayMessage(userInput, "user");
+           // displayMessage(userInput, "user");
             sendResponse(userInput);
             document.getElementById("user-input").value = "";
         }
@@ -871,6 +871,7 @@
             }
         }
 
+        // Atualiza a imagem e a informação da doença atual
         function updateDiseaseInfo() {
             if (currentDiseaseIndex < patientData.doencasCronicas.length) {
                 let disease = patientData.doencasCronicas[currentDiseaseIndex];

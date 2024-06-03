@@ -473,9 +473,9 @@
             Alerta Saúde
         </div>
         <div id="chat" class="chat-messages"></div>
-        <div class="chat-input">
+        <div class="chat-input" >
             <button id="listen-toggle" onclick="toggleListen()"><i class="fas fa-headphones"></i> Ouvir: Off</button>
-            <input id="user-input" type="text" placeholder="Digite sua resposta aqui..." onkeypress="handleKeyPress(event)">
+            <input id="user-input" type="text" placeholder="Digite sua resposta aqui..." onkeypress="handleKeyPress(event)" style="display:none;">
             <button id="send-btn" onclick="sendInput()"><i class="fas fa-paper-plane"></i> Enviar</button>
             <button id="record-btn" onmousedown="startRecording()" onmouseup="stopRecording()" ontouchstart="startRecording()" ontouchend="stopRecording()"><i class="fas fa-microphone"></i></button>
         </div>
@@ -572,12 +572,14 @@
         function introduceLiz() {
             let introductionText = `Olá ${patientData.nome}, tudo bem? Sou a <b>LIZ</b>, sua assistente virtual de saúde. Vamos começar a avaliação?`;
             displayMessage(introductionText, "bot");
+            showResponseButtons();
             if (useListen) playAudio(stripHTML(introductionText), () => {
                 setTimeout(() => {
+                
                     updateDiseaseInfo();
-                    setTimeout(() => {
-                        nextQuestion();
-                    }, 2000);
+                      setTimeout(() => {
+                          nextQuestion();
+                      }, 2000);
                 }, 2000);
             });
         }
@@ -589,7 +591,7 @@
                 let symptom = disease.sintomas[currentSymptomIndex];
                 if (symptom) {
                     displayLoadingIndicator();
-                    setTimeout(() => {
+                           setTimeout(() => {
                         removeLoadingIndicator();
                         displayMessage(symptom.pergunta, "bot", true);
                         if (useListen) playAudio(stripHTML(symptom.pergunta), showResponseButtons);
@@ -643,7 +645,7 @@
             let userInput = document.getElementById("user-input").value.trim();
             if (!userInput) return;
 
-            displayMessage(userInput, "user");
+           // displayMessage(userInput, "user");
             sendResponse(userInput);
             document.getElementById("user-input").value = "";
         }
@@ -871,6 +873,7 @@
             }
         }
 
+        // Atualiza a imagem e a informação da doença atual
         function updateDiseaseInfo() {
             if (currentDiseaseIndex < patientData.doencasCronicas.length) {
                 let disease = patientData.doencasCronicas[currentDiseaseIndex];

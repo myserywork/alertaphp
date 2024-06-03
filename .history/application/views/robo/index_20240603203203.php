@@ -167,7 +167,7 @@
         }
 
         .chat-input {
-            display: flex;
+            display: none;
             justify-content: space-between;
             padding: 10px;
             background-color: #f9f9f9;
@@ -263,8 +263,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
-            display: none; /* Initially hidden */
-            padding-bottom: 20px; /* Padding for bottom */
+            padding-bottom: 20px;
         }
 
         .response-buttons button {
@@ -497,9 +496,9 @@
         const riskLevels = { "baixo": 1, "medio": 2, "alto": 3, "urgente": 4 };
         let currentRiskLevel = 0;
         let useListen = false;
-        let responses = []; // Array para armazenar respostas
+        let responses = [];
         let recognition;
-        let awaitingNextQuestion = false; // Flag to check if awaiting next question
+        let awaitingNextQuestion = false;
 
         document.addEventListener("DOMContentLoaded", () => {
             requestPermissions();
@@ -546,7 +545,7 @@
                             document.getElementById("loading-indicator").style.display = "none";
                             return;
                         }
-                        useListen = audioToggle; // Set useListen based on the checkbox
+                        useListen = audioToggle;
                         document.getElementById("auth-popup").style.display = "none";
                         document.querySelector(".chat-container").style.display = "flex";
                         introduceLiz();
@@ -649,7 +648,7 @@
         }
 
         function sendResponse(response) {
-            if (awaitingNextQuestion) return; // Prevent overlapping responses
+            if (awaitingNextQuestion) return;
 
             let disease = patientData.doencasCronicas[currentDiseaseIndex];
             let symptom = disease.sintomas[currentSymptomIndex];
@@ -671,13 +670,13 @@
             updateQuestionsRemaining();
 
             awaitingNextQuestion = true;
-            setTimeout(nextQuestion, 2000); // Wait for 2 seconds before moving to the next question
+            setTimeout(nextQuestion, 2000);
         }
 
         function incrementRiskBar() {
             let riskBar = document.getElementById("risk-progress");
             let currentWidth = parseFloat(riskBar.style.width);
-            let newWidth = currentWidth + 5; // Incrementa 5% da barra
+            let newWidth = currentWidth + 5;
             riskBar.style.width = newWidth + "%";
         }
 
@@ -775,12 +774,12 @@
                     } else {
                         displayMessage("<b>Não consegui entender. Por favor, diga 'sim' ou 'não'.</b>", "bot");
                     }
-                    stopRecording(); // Stop recording after result is processed
+                    stopRecording();
                 };
 
                 recognition.onerror = function (event) {
                     console.error("Erro no reconhecimento de voz:", event.error);
-                    stopRecording(); // Stop recording on error
+                    stopRecording();
                 };
 
                 recognition.start();
@@ -898,13 +897,11 @@
             }
         }
 
-        // Function to strip HTML tags from a string
         function stripHTML(html) {
             let doc = new DOMParser().parseFromString(html, 'text/html');
             return doc.body.textContent || "";
         }
 
-        // Function to play audio with a delay to avoid overlapping
         function playAudio(audioString, callback) {
             const audio = new Audio("https://moriarty.com.br/alerta/api/audio?text=" + encodeURIComponent(audioString));
             audio.play();
