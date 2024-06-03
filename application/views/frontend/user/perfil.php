@@ -247,10 +247,10 @@
         </div>
     </div>
 
-    <div id="addToHomeScreen" class="add-to-home-screen">
+   <!--  <div id="addToHomeScreen" class="add-to-home-screen">
         Adicionar à Tela Inicial
     </div>
-
+    -->
     <script>
         function showTab(tabId) {
             const contents = document.querySelectorAll('.tab-content');
