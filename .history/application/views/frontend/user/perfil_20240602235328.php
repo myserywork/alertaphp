@@ -69,11 +69,11 @@
             margin-bottom: 20px;
         }
         .tabs button {
-            flex: 1 0 48%;
+            flex: 1 0 32%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px;
+            padding: 0px;
             background: #e9ecef;
             border: none;
             cursor: pointer;
@@ -100,7 +100,6 @@
             display: none;
             max-height: 300px; /* Set your desired max height */
             overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;
@@ -129,10 +128,10 @@
                 margin: 5px 1%;
             }
         }
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             .tabs button {
-                flex: 1 0 48%;
-                margin: 5px 1%;
+                flex: 1 0 100%;
+                margin: 5px 0;
             }
         }
     </style>

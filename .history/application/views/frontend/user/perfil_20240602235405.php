@@ -100,7 +100,6 @@
             display: none;
             max-height: 300px; /* Set your desired max height */
             overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;

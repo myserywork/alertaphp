@@ -46,8 +46,8 @@
         }
         .btn-schedule {
             display: block;
-            margin: 10px 0;
-            padding: 8px 16px;
+            margin: 20px 0;
+            padding: 10px 20px;
             background-color: #27ae60;
             color: white;
             border: none;
@@ -55,7 +55,7 @@
             text-align: center;
             cursor: pointer;
             text-decoration: none;
-            font-size: 0.9em;
+            font-size: 1em;
             transition: background 0.3s, transform 0.3s;
         }
         .btn-schedule:hover {
@@ -69,7 +69,7 @@
             margin-bottom: 20px;
         }
         .tabs button {
-            flex: 1 0 48%;
+            flex: 1 0 30%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -80,8 +80,8 @@
             text-align: center;
             font-size: 0.9em;
             color: #27ae60;
-            border-radius: 15px;
-            margin: 5px 1%;
+            border-radius: 10px;
+            margin: 5px;
             transition: background 0.3s, color 0.3s, transform 0.3s;
         }
         .tabs button i {
@@ -98,41 +98,62 @@
         }
         .tab-content {
             display: none;
-            max-height: 300px; /* Set your desired max height */
-            overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;
         }
-        .tab-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .tab-content::-webkit-scrollbar-thumb {
-            background-color: #27ae60;
-            border-radius: 10px;
-        }
-        .tab-content::-webkit-scrollbar-track {
-            background: #f5f7fa;
-        }
-        .contact-buttons {
+        .contact-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
         }
-        .contact-buttons .btn-schedule {
-            flex: 1 0 48%;
+        .contact-button {
+            flex: 1 0 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 5px;
+            transition: background 0.3s, transform 0.3s;
         }
-        @media (max-width: 600px) {
+        .contact-button:hover {
+            background-color: #219150;
+            transform: scale(1.05);
+        }
+        .contact-button i {
+            margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
             .tabs button {
                 flex: 1 0 48%;
-                margin: 5px 1%;
+            }
+            .contact-button {
+                flex: 1 0 48%;
             }
         }
-        @media (max-width: 375px) {
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
             .tabs button {
-                flex: 1 0 48%;
-                margin: 5px 1%;
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+            .contact-button {
+                flex: 1 0 100%;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -187,11 +208,26 @@
         </div>
         <div id="contato-rapido" class="tab-content">
             <h2>Contato Rápido</h2>
-            <div class="contact-buttons">
-                <a href="https://wa.me/55<?= $paciente->telefone ?>" class="btn-schedule">WhatsApp Paciente</a>
-                <a href="tel:<?= $paciente->telefone ?>" class="btn-schedule">Ligar para Paciente</a>
-                <a href="https://wa.me/55<?= $paciente->celular_cuidador ?>" class="btn-schedule">WhatsApp Cuidador</a>
-                <a href="tel:<?= $paciente->telefone_fixo_cuidador ?>" class="btn-schedule">Ligar para Cuidador</a>
+            <div class="contact-container">
+                <a href="https://wa.me/55<?= $paciente->telefone ?>" class="contact-button" target="_blank">
+                    <i class="material-icons">message</i> WhatsApp Paciente
+                </a>
+                <a href="tel:+55<?= $paciente->telefone ?>" class="contact-button">
+                    <i class="material-icons">call</i> Ligar para Paciente
+                </a>
+                <?php if (!empty($paciente->celular_cuidador)): ?>
+                    <a href="https://wa.me/55<?= $paciente->celular_cuidador ?>" class="contact-button" target="_blank">
+                        <i class="material-icons">message</i> WhatsApp Cuidador
+                    </a>
+                    <a href="tel:+55<?= $paciente->celular_cuidador ?>" class="contact-button">
+                        <i class="material-icons">call</i> Ligar para Cuidador
+                    </a>
+                <?php endif; ?>
+                <?php if (!empty($paciente->telefone_fixo_cuidador)): ?>
+                    <a href="tel:+55<?= $paciente->telefone_fixo_cuidador ?>" class="contact-button">
+                        <i class="material-icons">call</i> Ligar para Cuidador (Fixo)
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

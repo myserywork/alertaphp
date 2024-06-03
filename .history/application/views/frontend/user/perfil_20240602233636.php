@@ -25,17 +25,15 @@
         }
         .profile-header {
             display: flex;
-            flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
             color: #4c5258;
             padding: 20px;
             border-radius: 15px;
-            text-align: center;
         }
         .profile-header img {
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-right: 20px;
             width: 80px;
             height: 80px;
             object-fit: cover;
@@ -46,8 +44,8 @@
         }
         .btn-schedule {
             display: block;
-            margin: 10px 0;
-            padding: 8px 16px;
+            margin: 20px 0;
+            padding: 10px 20px;
             background-color: #27ae60;
             color: white;
             border: none;
@@ -55,7 +53,7 @@
             text-align: center;
             cursor: pointer;
             text-decoration: none;
-            font-size: 0.9em;
+            font-size: 1em;
             transition: background 0.3s, transform 0.3s;
         }
         .btn-schedule:hover {
@@ -69,23 +67,23 @@
             margin-bottom: 20px;
         }
         .tabs button {
-            flex: 1 0 48%;
+            flex: 1 0 30%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px;
+            padding: 15px;
             background: #e9ecef;
             border: none;
             cursor: pointer;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 1em;
             color: #27ae60;
             border-radius: 15px;
-            margin: 5px 1%;
+            margin: 5px;
             transition: background 0.3s, color 0.3s, transform 0.3s;
         }
         .tabs button i {
-            font-size: 1.5em;
+            font-size: 2em;
             margin-bottom: 5px;
         }
         .tabs button:hover {
@@ -98,41 +96,30 @@
         }
         .tab-content {
             display: none;
-            max-height: 300px; /* Set your desired max height */
-            overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;
         }
-        .tab-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .tab-content::-webkit-scrollbar-thumb {
-            background-color: #27ae60;
-            border-radius: 10px;
-        }
-        .tab-content::-webkit-scrollbar-track {
-            background: #f5f7fa;
-        }
-        .contact-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .contact-buttons .btn-schedule {
-            flex: 1 0 48%;
-        }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .tabs button {
                 flex: 1 0 48%;
-                margin: 5px 1%;
             }
         }
-        @media (max-width: 375px) {
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
             .tabs button {
-                flex: 1 0 48%;
-                margin: 5px 1%;
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-header img {
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -157,7 +144,6 @@
             <button onclick="showTab('prontuarios')"><i class="material-icons">description</i> Prontuários</button>
             <button onclick="showTab('alertas')"><i class="material-icons">notifications</i> Alertas</button>
             <button onclick="showTab('teste-dengue')"><i class="material-icons">bug_report</i> Teste Dengue</button>
-            <button onclick="showTab('contato-rapido')"><i class="material-icons">phone</i> Contato Rápido</button>
         </div>
         <div id="overview" class="tab-content active">
             <?php $this->load->view('frontend/user/mood', array('paciente' => $paciente)); ?>
@@ -184,15 +170,6 @@
         <div id="teste-dengue" class="tab-content">
             <h2>Teste Dengue</h2>
             <!-- Conteúdo do teste de dengue aqui -->
-        </div>
-        <div id="contato-rapido" class="tab-content">
-            <h2>Contato Rápido</h2>
-            <div class="contact-buttons">
-                <a href="https://wa.me/55<?= $paciente->telefone ?>" class="btn-schedule">WhatsApp Paciente</a>
-                <a href="tel:<?= $paciente->telefone ?>" class="btn-schedule">Ligar para Paciente</a>
-                <a href="https://wa.me/55<?= $paciente->celular_cuidador ?>" class="btn-schedule">WhatsApp Cuidador</a>
-                <a href="tel:<?= $paciente->telefone_fixo_cuidador ?>" class="btn-schedule">Ligar para Cuidador</a>
-            </div>
         </div>
     </div>
     <script>

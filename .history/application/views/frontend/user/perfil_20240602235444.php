@@ -11,6 +11,7 @@
             background-color: #f5f7fa;
             color: #333;
             margin: 0;
+            margin-top: 20px;
             padding: 0;
         }
         .container {
@@ -100,7 +101,6 @@
             display: none;
             max-height: 300px; /* Set your desired max height */
             overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;

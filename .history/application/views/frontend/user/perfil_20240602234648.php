@@ -98,22 +98,9 @@
         }
         .tab-content {
             display: none;
-            max-height: 300px; /* Set your desired max height */
-            overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;
-        }
-        .tab-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .tab-content::-webkit-scrollbar-thumb {
-            background-color: #27ae60;
-            border-radius: 10px;
-        }
-        .tab-content::-webkit-scrollbar-track {
-            background: #f5f7fa;
         }
         .contact-buttons {
             display: flex;
@@ -129,10 +116,10 @@
                 margin: 5px 1%;
             }
         }
-        @media (max-width: 375px) {
+        @media (max-width: 400px) {
             .tabs button {
-                flex: 1 0 48%;
-                margin: 5px 1%;
+                flex: 1 0 100%;
+                margin: 5px 0;
             }
         }
     </style>

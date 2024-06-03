@@ -2,40 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Perfil do Paciente</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+
+         /* if iphone  10 or less then container margin top 200px*/ 
+        @media only screen and (max-device-width: 375px) {
+            .body {
+                margin-top: 60px !important;
+            }
+        }
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f5f7fa;
             color: #333;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         .container {
             max-width: 600px;
-            margin: auto;
+            margin: 0 auto;
             padding: 20px;
             background: white;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             margin-top: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 660px;
         }
         .profile-header {
             display: flex;
-            flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
             color: #4c5258;
             padding: 20px;
             border-radius: 15px;
-            text-align: center;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .profile-header img {
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-right: 20px;
             width: 80px;
             height: 80px;
             object-fit: cover;
@@ -46,8 +54,8 @@
         }
         .btn-schedule {
             display: block;
-            margin: 10px 0;
-            padding: 8px 16px;
+            margin: 20px 0;
+            padding: 10px 20px;
             background-color: #27ae60;
             color: white;
             border: none;
@@ -55,7 +63,7 @@
             text-align: center;
             cursor: pointer;
             text-decoration: none;
-            font-size: 0.9em;
+            font-size: 1em;
             transition: background 0.3s, transform 0.3s;
         }
         .btn-schedule:hover {
@@ -65,27 +73,27 @@
         .tabs {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-around;
             margin-bottom: 20px;
+            gap: 10px;
         }
         .tabs button {
-            flex: 1 0 48%;
+            flex: 1 1 45%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px;
+            padding: 15px;
             background: #e9ecef;
             border: none;
             cursor: pointer;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 1em;
             color: #27ae60;
             border-radius: 15px;
-            margin: 5px 1%;
             transition: background 0.3s, color 0.3s, transform 0.3s;
         }
         .tabs button i {
-            font-size: 1.5em;
+            font-size: 2em;
             margin-bottom: 5px;
         }
         .tabs button:hover {
@@ -98,47 +106,14 @@
         }
         .tab-content {
             display: none;
-            max-height: 300px; /* Set your desired max height */
-            overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;
         }
-        .tab-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .tab-content::-webkit-scrollbar-thumb {
-            background-color: #27ae60;
-            border-radius: 10px;
-        }
-        .tab-content::-webkit-scrollbar-track {
-            background: #f5f7fa;
-        }
-        .contact-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .contact-buttons .btn-schedule {
-            flex: 1 0 48%;
-        }
-        @media (max-width: 600px) {
-            .tabs button {
-                flex: 1 0 48%;
-                margin: 5px 1%;
-            }
-        }
-        @media (max-width: 375px) {
-            .tabs button {
-                flex: 1 0 48%;
-                margin: 5px 1%;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="margin-top:5%">
         <div class="profile-header">
             <img src="<?= $paciente->foto ?: base_url('/assets/images/logo-iso.png') ?>" alt="Foto do Paciente">
             <div>
@@ -186,13 +161,7 @@
             <!-- Conteúdo do teste de dengue aqui -->
         </div>
         <div id="contato-rapido" class="tab-content">
-            <h2>Contato Rápido</h2>
-            <div class="contact-buttons">
-                <a href="https://wa.me/55<?= $paciente->telefone ?>" class="btn-schedule">WhatsApp Paciente</a>
-                <a href="tel:<?= $paciente->telefone ?>" class="btn-schedule">Ligar para Paciente</a>
-                <a href="https://wa.me/55<?= $paciente->celular_cuidador ?>" class="btn-schedule">WhatsApp Cuidador</a>
-                <a href="tel:<?= $paciente->telefone_fixo_cuidador ?>" class="btn-schedule">Ligar para Cuidador</a>
-            </div>
+            <?php $this->load->view('frontend/user/contato_rapido', array('paciente' => $paciente)); ?>
         </div>
     </div>
     <script>

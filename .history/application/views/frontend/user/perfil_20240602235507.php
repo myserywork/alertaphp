@@ -11,6 +11,7 @@
             background-color: #f5f7fa;
             color: #333;
             margin: 0;
+           
             padding: 0;
         }
         .container {
@@ -20,7 +21,7 @@
             background: white;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
-            margin-top: 20px;
+            margin-top: 240px;
             margin-bottom: 60px;
         }
         .profile-header {
@@ -100,7 +101,6 @@
             display: none;
             max-height: 300px; /* Set your desired max height */
             overflow-y: auto;
-            padding: 10px;
         }
         .tab-content.active {
             display: block;
