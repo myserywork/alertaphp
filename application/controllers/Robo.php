@@ -29,6 +29,40 @@ class Robo extends CI_Controller {
         }
     
     }
+
+
+  
+
+    public function dengue($pacienteId = null) {
+    
+    $data['pin'] = '';
+        $data['cpf'] = '';
+    // Verifica se o ID do paciente foi fornecido
+    if ($pacienteId === null) {
+                return $this->load->view('robo/dengue', $data);
+    }
+    
+  
+
+    // Seleciona as colunas 'pin' e 'cpf' da tabela 'pacientes'
+    $this->db->select('pin, cpf');
+    $this->db->from('pacientes');
+    $this->db->where('id', $pacienteId);
+    $query = $this->db->get();
+
+    // Verifica se um resultado foi encontrado
+    if ($query->num_rows() === 1) {
+        $data['pin'] = $query->row()->pin;
+        $data['cpf'] = $query->row()->cpf;
+    } else {
+        return $this->load->view('robo/dengue', $data);
+    }
+
+    // Carrega a view 'robo/index' e passa os dados 'pin' e 'cpf' para a view
+    return $this->load->view('robo/dengue', $data);
+}
+
+
 public function index($pacienteId = null) {
     
          $data['pin'] = '';

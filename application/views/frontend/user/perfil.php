@@ -183,7 +183,8 @@
         </div>
         <div id="teste-dengue" class="tab-content">
             <h2>Teste Dengue</h2>
-            <!-- Conteúdo do teste de dengue aqui -->
+            <!-- btn para redirecionar para o teste -->
+            <a href="<?= base_url('robo/dengue') ?>" class="btn-schedule">Realizar Teste</a>
         </div>
         <div id="contato-rapido" class="tab-content">
             <h2>Contato Rápido</h2>
