@@ -187,7 +187,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="">
         <div class="profile-header">
             <img src="<?= strlen($paciente->foto) > 5 ? base_url('assets/uploads/files/' . $paciente->foto) : base_url('assets/images/logo-iso.png') ?>" alt="Foto do Paciente">
             <div>
