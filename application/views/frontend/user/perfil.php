@@ -1,3 +1,7 @@
+
+<?php 
+
+$this->load->view('frontend/layout/header.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,8 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f5f7fa;
-            color: #333;
+            color: #33
+            3;
             margin: 0;
             padding: 0;
         }
