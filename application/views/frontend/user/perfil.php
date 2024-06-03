@@ -244,6 +244,43 @@
                 console.log('ServiceWorker registration failed: ', error);
             });
         }
+
+        let deferredPrompt;
+        const addBtn = document.createElement('button');
+        addBtn.style.position = 'fixed';
+        addBtn.style.bottom = '20px';
+        addBtn.style.right = '20px';
+        addBtn.style.backgroundColor = '#27ae60';
+        addBtn.style.color = 'white';
+        addBtn.style.border = 'none';
+        addBtn.style.padding = '10px';
+        addBtn.style.borderRadius = '5px';
+        addBtn.style.cursor = 'pointer';
+        addBtn.innerText = 'Adicionar à Tela Inicial';
+        document.body.appendChild(addBtn);
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            addBtn.style.display = 'block';
+
+            addBtn.addEventListener('click', () => {
+                addBtn.style.display = 'none';
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+        });
     </script>
 </body>
 </html>

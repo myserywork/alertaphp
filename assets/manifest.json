@@ -1,8 +1,8 @@
 {
-    "name": "Perfil do Paciente",
-    "short_name": "Paciente",
+    "name": "AlertaSaúde",
+    "short_name": "AlertaSaúde",
     "description": "Visualize e gerencie as informações do paciente.",
-    "start_url": "https://beta.alertasaude.com.br/user/login",
+    "start_url": "user/login",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
