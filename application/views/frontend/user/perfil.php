@@ -140,7 +140,7 @@
 <body>
     <div class="container">
         <div class="profile-header">
-            <img src="<?= $paciente->foto ?: base_url('/assets/images/logo-iso.png') ?>" alt="Foto do Paciente">
+            <img src="<?= base_url('assets/uploads/files/'. $paciente->foto ) ?: base_url('/assets/images/logo-iso.png') ?>" alt="Foto do Paciente">
             <div>
                 <strong><?= $paciente->nome ?></strong><br>
                 <?= $paciente->email ?><br>
