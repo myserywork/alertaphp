@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/images/logo-iso.png',
+                'https://beta.alertasaude.com.br/assets/images/logo-iso.png',
                 // Adicione outros recursos que você deseja armazenar em cache
             ]);
         })

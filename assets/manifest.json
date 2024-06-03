@@ -2,18 +2,18 @@
     "name": "Perfil do Paciente",
     "short_name": "Paciente",
     "description": "Visualize e gerencie as informações do paciente.",
-    "start_url": "/",
+    "start_url": "https://beta.alertasaude.com.br/user/login",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "images/logo-iso.png",
+            "src": "https://beta.alertasaude.com.br/assets/images/logo-iso.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "images/logo-iso.png",
+            "src": "https://beta.alertasaude.com.br/assets/images/logo-iso.png",
             "sizes": "512x512",
             "type": "image/png"
         }
