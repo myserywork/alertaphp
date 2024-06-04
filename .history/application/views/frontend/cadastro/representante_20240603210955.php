@@ -70,22 +70,6 @@
             color: red;
             font-size: 0.875rem;
         }
-
-        .container {
-            background: #ffffff;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-control:focus {
-            background: #e9ecef;
-            border-color: #80bdff;
-        }
     </style>
 </head>
 
@@ -93,8 +77,8 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h1 class="text-center" style="color:#6d7982;font-weight: 500;margin-bottom:2em;">SEJA UM PARCEIRO</h1>
-                <p class="text-center">Seja um PARCEIRO Alerta Saúde em sua cidade. Preencha o formulário e envie.</p>
+                <h1 class="text-center" style="color:#6d7982;font-weight: 500;margin-bottom:2em;">SEJA UM REPRESENTANTE</h1>
+                <p class="text-center">Seja um Representante Alerta Saúde em sua cidade. Preencha o formulário e envie.</p>
                 <form id="formCadastro" action="<?php echo site_url('representante/create'); ?>" method="post">
                     <fieldset>
                         <legend style="color:#6d7982;font-weight: 600;">Dados Pessoais</legend>
